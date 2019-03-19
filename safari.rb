@@ -29,10 +29,11 @@ p animals
 
 puts "How many lions did you see?"
 increment_animals_seen = gets.chomp
-p Animal.seen_count
-# p increment_animals_seen += Animal.seen_count
-animals_seen = Animal.find_by({"species" => increment_animals_seen})
-
+lions_seen = Animal.find_by(species: "lion")
+p lions_seen.seen_count
+# p lions_seen_count += Animal.seen_count
+animals_seen = Animal.find_by({"species" => "lion"})
+animals_seen.update({"seen_count" => increment_animals_seen})
 
 
 if increment_animals_seen.empty?
@@ -40,9 +41,9 @@ if increment_animals_seen.empty?
 else 
   puts "Saw animals!"
 
-  animals_seen.each do |lion|
-    puts "Just saw #{lion.seen_count} lions!"
-    lion.save
-    p lions
-  end
+  # animals_seen.each do |lion|
+  #   puts "Just saw #{lion.seen_count} lions!"
+  #   lion.save
+  #   p lions
+  # end
 end
