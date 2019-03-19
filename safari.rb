@@ -29,6 +29,7 @@ p animals
 
 puts "How many lions did you see?"
 increment_animals_seen = gets.chomp
+p Animal.seen_count
 # p increment_animals_seen += Animal.seen_count
 animals_seen = Animal.find_by({"species" => increment_animals_seen})
 
