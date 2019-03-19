@@ -27,23 +27,24 @@ p animals
 
 5.times{puts}
 
-puts "How many lions did you see?"
+puts "What kind of animal did you see?"
 increment_animals_seen = gets.chomp
 lions_seen = Animal.find_by(species: "lion")
 p lions_seen.seen_count
 # p lions_seen_count += Animal.seen_count
-animals_seen = Animal.find_by({"species" => "lion"})
-animals_seen.update({"seen_count" => increment_animals_seen})
+animals_seen = Animal.where({"species" => increment_animals_seen})
+# animals_seen.update({"seen_count" => increment_animals_seen})
+animal_seen = Animal.find_by({"species" => increment_animals_seen})
+# animals.seen_count += animal_seen
 
 
 if increment_animals_seen.empty?
   puts "There was no animal seen"
 else 
-  puts "Saw animals!"
+  puts animals_seen
 
-  # animals_seen.each do |lion|
-  #   puts "Just saw #{lion.seen_count} lions!"
-  #   lion.save
-  #   p lions
+  # animals_seen.each do |one_animal|
+  #   puts "Just saw #{one_animal}!"
+  #   animals_seen.save
   # end
 end
