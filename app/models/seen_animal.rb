@@ -1,0 +1,2 @@
+class SeenAnimal < ApplicationRecord
+end

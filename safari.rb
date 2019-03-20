@@ -38,7 +38,7 @@ elsif comment == "species"
   species_seen = gets.chomp
   # puts "where did you see #{species_seen}"
   animal = Animal.find_by({"species" => species_seen})
-  p "Saw #{animal.seen_count} #{animal.species}s #{animal.last_seen_location}"
+  puts "Saw #{animal.seen_count} #{animal.species}s #{animal.last_seen_location}"
 elsif comment == "spot"
   puts "What animal did you spot?!"
   animal_seen = gets.chomp
@@ -53,9 +53,9 @@ elsif comment == "extinct"
   extinct_location = gets.chomp
   animal = Animal.where({"last_seen_location" => extinct_location})
   animal.destroy_all
-  p "#{extinct_location} destroyed!"
+  puts "#{extinct_location} destroyed!"
 elsif comment == "total"
-  p Animal.sum(:seen_count)
+  puts Animal.sum(:seen_count)
   end
 end
 # 5.times{puts}
