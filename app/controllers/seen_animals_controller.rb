@@ -1,43 +1,43 @@
 class SeenAnimalsController < ApplicationController
   #  GET /animals
   def index
-    @animals = SeenAnimal.ApplicationController
-    render json: @animals
+    @seen_animals = SeenAnimal.ApplicationController
+    render json: @seen_animals
   end
 
   # GET /animals/1
   def show
-    @animal = SeenAnimal.find(params[:id])
+    @seen_animal = SeenAnimal.find(params[:id])
 
-    render json: @animal
+    render json: @seen_animal
   end
 
   # POST /animals
   def create
-    @animal = SeenAnimal.new(animal_params)
+    @seen_animal = SeenAnimal.new(animal_params)
 
-    if @animal.save
-      render json: @animal, status: :created, location: @animal
+    if @seen_animal.save
+      render json: @seen_animal, status: :created, location: @seen_animal
     else
-      render json: @animal.errors, status: :unprocessable_entity
+      render json: @seen_animal.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /animals/1
   def update
-    @animal = SeenAnimal.find(params[:id])
+    @seen_animal = SeenAnimal.find(params[:id])
 
-    if @animal.update(animal_params)
-      render json: @animal
+    if @seen_animal.update(animal_params)
+      render json: @seen_animal
     else
-      render json: @animal.errors, status: :unprocessable_entity
+      render json: @seen_animal.errors, status: :unprocessable_entity
     end
   end
 
   # DELETE /animals/1
   def destroy
-    @animal = SeenAnimal.find(params[:id])
-    @animal.destroy
+    @seen_animal = SeenAnimal.find(params[:id])
+    @seen_animal.destroy
 
     private
 
