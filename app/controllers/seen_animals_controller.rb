@@ -1,7 +1,7 @@
 class SeenAnimalsController < ApplicationController
   #  GET /animals
   def index
-    @seen_animals = SeenAnimal.ApplicationController
+    @seen_animals = SeenAnimal.all
     render json: @seen_animals
   end
 
@@ -24,25 +24,25 @@ class SeenAnimalsController < ApplicationController
   end
 
   # PATCH/PUT /animals/1
-  def update
-    @seen_animal = SeenAnimal.find(params[:id])
+  # def update
+  #   @seen_animal = SeenAnimal.find(params[:id])
 
-    if @seen_animal.update(animal_params)
-      render json: @seen_animal
-    else
-      render json: @seen_animal.errors, status: :unprocessable_entity
-    end
-  end
+  #   if @seen_animal.update(animal_params)
+  #     render json: @seen_animal
+  #   else
+  #     render json: @seen_animal.errors, status: :unprocessable_entity
+  #   end
+  # end
 
-  # DELETE /animals/1
-  def destroy
-    @seen_animal = SeenAnimal.find(params[:id])
-    @seen_animal.destroy
+  # # DELETE /animals/1
+  # def destroy
+  #   @seen_animal = SeenAnimal.find(params[:id])
+  #   @seen_animal.destroy
 
-    private
+  #   private
 
-  # Only allow a trusted parameter "white list" through
-  def animal_params
-    params.require(:seen_animal).permit(:species, :count_of_time_seen, :locations_of_last_seen)
-  end
+  # # Only allow a trusted parameter "white list" through
+  # def animal_params
+  #   params.require(:seen_animal).permit(:species, :count_of_time_seen, :locations_of_last_seen)
+  # end
 end
